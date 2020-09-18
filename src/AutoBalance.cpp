@@ -271,10 +271,12 @@ class AutoBalance_PlayerScript : public PlayerScript
                     // Ensure that the players always get the same XP, even when entering the dungeon alone
                     uint32 maxPlayerCount = ((InstanceMap*)sMapMgr->FindMap(map->GetId(), map->GetInstanceId()))->GetMaxPlayers();
                     uint32 currentPlayerCount = map->GetPlayersCountExceptGMs();
-                    if (currentPlayerCount == 1) {
+                    if (currentPlayerCount == 1)
+                    {
                     amount *= (float)currentPlayerCount / maxPlayerCount * DungeonScaleDownXPSoloRate;
                     }
-                    else {
+                    else
+                    {
                     amount *= (float)currentPlayerCount / maxPlayerCount;
                     }
                 }
