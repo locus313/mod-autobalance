@@ -227,7 +227,7 @@ class AutoBalance_WorldScript : public WorldScript
         MinHPModifier = sConfigMgr->GetFloatDefault("AutoBalance.MinHPModifier", 0.1f);
         MinManaModifier = sConfigMgr->GetFloatDefault("AutoBalance.MinManaModifier", 0.1f);
         MinDamageModifier = sConfigMgr->GetFloatDefault("AutoBalance.MinDamageModifier", 0.1f);
-        DungeonScaleDownXPSoloRate = sConfigMgr->GetBoolDefault("AutoBalance.DungeonScaleDownXP.rate.solo", 1.0f);
+        DungeonScaleDownXPSoloRate = sConfigMgr->GetFloatDefault("AutoBalance.DungeonScaleDownXP.rate.solo", 1.0f);
     }
 };
 
