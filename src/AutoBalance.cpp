@@ -111,7 +111,7 @@ static std::map<int, int> forcedCreatureIds;
 static int8 PlayerCountDifficultyOffset, LevelScaling, higherOffset, lowerOffset;
 static uint32 rewardRaid, rewardDungeon, MinPlayerReward;
 static bool enabled, LevelEndGameBoost, DungeonsOnly, PlayerChangeNotify, LevelUseDb, rewardEnabled, DungeonScaleDownXP;
-static float globalRate, healthMultiplier, manaMultiplier, armorMultiplier, damageMultiplier, MinHPModifier, MinManaModifier, MinDamageModifier, DungeonScaleDownXPSoloRate,
+static float globalRate, healthMultiplier, manaMultiplier, armorMultiplier, damageMultiplier, MinHPModifier, MinManaModifier, MinDamageModifier,
 InflectionPoint, InflectionPointRaid, InflectionPointRaid10M, InflectionPointRaid25M, InflectionPointHeroic, InflectionPointRaidHeroic, InflectionPointRaid10MHeroic, InflectionPointRaid25MHeroic, BossInflectionMult;
 
 int GetValidDebugLevel()
@@ -227,7 +227,6 @@ class AutoBalance_WorldScript : public WorldScript
         MinHPModifier = sConfigMgr->GetFloatDefault("AutoBalance.MinHPModifier", 0.1f);
         MinManaModifier = sConfigMgr->GetFloatDefault("AutoBalance.MinManaModifier", 0.1f);
         MinDamageModifier = sConfigMgr->GetFloatDefault("AutoBalance.MinDamageModifier", 0.1f);
-        DungeonScaleDownXPSoloRate = sConfigMgr->GetFloatDefault("AutoBalance.DungeonScaleDownXP.rate.solo", 1.0f);
     }
 };
 
@@ -271,14 +270,7 @@ class AutoBalance_PlayerScript : public PlayerScript
                     // Ensure that the players always get the same XP, even when entering the dungeon alone
                     uint32 maxPlayerCount = ((InstanceMap*)sMapMgr->FindMap(map->GetId(), map->GetInstanceId()))->GetMaxPlayers();
                     uint32 currentPlayerCount = map->GetPlayersCountExceptGMs();
-                    if (currentPlayerCount == 1)
-                    {
-                    amount *= (float)currentPlayerCount / maxPlayerCount * DungeonScaleDownXPSoloRate;
-                    }
-                    else
-                    {
                     amount *= (float)currentPlayerCount / maxPlayerCount;
-                    }
                 }
             }
         }

@@ -110,15 +110,6 @@ AutoBalance.LevelEndGameBoost = 1
 AutoBalance.DungeonScaleDownXP = 0
 
 #
-#     AutoBalance.DungeonScaleDownXP.rate.solo
-#        Set individual player's amount of XP gained during a dungeon run.
-#        AutoBalance.DungeonScaleDownXP = 1 you will earn 1/5 of the total XP as a solo player
-#        modifying this rate with allow you to set how much XP a solo player will receive 
-#        Default:     1.0
-
-AutoBalance.DungeonScaleDownXP.rate.solo = 1.0
-
-#
 #     AutoBalance.DungeonsOnly
 #        Only apply scaling changes to dungeons and raids
 #        Default:     1 (1 = ON, 0 = OFF)
